@@ -6,7 +6,7 @@ const stockMovementSchema = Schema(
     {
         product: {
             type: Schema.Types.ObjectId,
-            ref: 'Product',
+            ref: 'Producto',
             required: [true, 'Product reference is required']
         },
         type: {

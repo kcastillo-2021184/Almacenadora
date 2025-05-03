@@ -84,3 +84,29 @@ export const getMovementByProductValidator = [
 
     validateErrors
 ]
+
+export const registerClientValidator = [
+    body('name', 'Name is required').notEmpty().isLength({ max: 50 }),
+    body('company', 'Company is required').notEmpty(),
+    body('contact', 'Contact is required').notEmpty().isEmail(),
+    validateErrors
+]
+
+export const updateClientValidator = [
+    body('name').optional().notEmpty().isLength({ max: 50 }),
+    body('company').optional(),
+    body('contact').optional(),
+    validateErrorWithoutImg
+]
+
+export const registerSupplierValidator = [
+    body('name', 'Name is required').notEmpty().isLength({ max: 50 }),
+    body('contact', 'Contact is required').notEmpty(),
+    validateErrors
+]
+
+export const updateSupplierValidator = [
+    body('name').optional().isLength({ max: 50 }),
+    body('contact').optional(),
+    validateErrorWithoutImg
+]

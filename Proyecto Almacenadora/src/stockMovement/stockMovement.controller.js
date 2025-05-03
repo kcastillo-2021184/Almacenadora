@@ -7,7 +7,7 @@ import Product from "../product/product.model.js"
 export const createStockMovement = async (req, res) => {
     try {
         const { product, type, quantity, reason } = req.body
-        const userId = req.user.id // Asumimos que ya fue inyectado desde el middleware
+        const userId = req.user.uid // Asumimos que ya fue inyectado desde el middleware
 
         const foundProduct = await Product.findById(product)
         if (!foundProduct) {
@@ -58,6 +58,7 @@ export const createStockMovement = async (req, res) => {
 // Obtener historial global de movimientos
 export const getAllStockMovements = async (req, res) => {
     try {
+        console.log('user')
         const { limit = 20, skip = 0 } = req.query
         const movements = await StockMovement.find()
             .populate("product", "name category")

@@ -72,3 +72,38 @@ export const filtrarProductos = async (req, res) => {
     }
 }
 
+export const getStockAlerts = async (req, res) => {
+    try {
+        const threshold = 10
+
+        const products = await Producto.find({ stock: { $lt: threshold }, estado: true })
+
+        if (products.length === 0) return res.status(404).send({ success: false, message: `No products below stock threshold of ${threshold}` })
+
+        return res.send({ success: true, message: `Products below stock threshold of ${threshold}`, products })
+    } catch (e) {
+        console.error(e)
+        return res.status(500).send({ success: false, message: 'General error', error: e })
+    }
+}
+
+export const getExpirationAlerts = async (req, res) => {
+    try {
+        const daysBefore = 7
+        const now = new Date()
+        const alertDate = new Date(now)
+        alertDate.setDate(now.getDate() + daysBefore)
+
+        const products = await Producto.find({
+            expirationDate: { $lte: alertDate },
+            estado: true
+        })
+
+        if (!products.length) return res.status(404).send({ success: false, message: `No products expiring within ${daysBefore} days` })
+
+        return res.send({ success: true, message: `Products expiring within ${daysBefore} days`, products })
+    } catch (e) {
+        console.error(e)
+        return res.status(500).send({ success: false, message: 'General error', error: e })
+    }
+}

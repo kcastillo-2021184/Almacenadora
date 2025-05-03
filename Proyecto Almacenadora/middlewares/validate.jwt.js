@@ -70,13 +70,6 @@ export const isUser = async (req, res, next) => {
             });
         }
 
-        if (user.status === false) {
-            return res.status(403).send({
-                success: false,
-                message: `Your account is deleted, you cannot do any changes 👻 | username ${user.username}`
-            });
-        }
-
         next();
     } catch (err) {
         console.error(err);
@@ -87,4 +80,22 @@ export const isUser = async (req, res, next) => {
     }
 };
 
+export const isActive = async (req, res, next) => {
+    try {
+        const { user } = req
 
+        if (user.status === false) {
+            return res.status(403).send({
+                success: false,
+                message: `Your account is deleted, you cannot do any changes 👻 | username ${user.username}`
+            })
+        }
+
+        next()
+    } catch (error) {
+        return res.status(403).send({
+            success: false,
+            message: 'Invalid user, must be active to do actions'
+        })
+    }
+}

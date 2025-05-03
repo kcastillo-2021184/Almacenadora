@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6062aee3-2fbf-4fb9-b286-c613b1272fc9",
+		"_postman_id": "d297df38-0024-4ad8-8047-d3f1596c2328",
 		"name": "HotelManagement",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37951913"
+		"_exporter_id": "37951917"
 	},
 	"item": [
 		{
@@ -464,12 +464,12 @@
 							"urlencoded": [
 								{
 									"key": "product",
-									"value": "id-del-producto",
+									"value": "681651997fa01729f036a4d1",
 									"type": "text"
 								},
 								{
 									"key": "type",
-									"value": "ENTRY or EXIT",
+									"value": "ENTRY",
 									"type": "text"
 								},
 								{
@@ -491,13 +491,13 @@
 								},
 								{
 									"key": "reason",
-									"value": "Descripción requerida",
+									"value": "personal use",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3616/v1/stockMovement/",
+							"raw": "http://localhost:3616/v1/stockMovement/registerMovement",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -506,7 +506,7 @@
 							"path": [
 								"v1",
 								"stockMovement",
-								""
+								"registerMovement"
 							]
 						}
 					},
@@ -551,7 +551,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3616/v1/stockMovement/",
+							"raw": "http://localhost:3616/v1/stockMovement/681651997fa01729f036a4d1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -560,7 +560,7 @@
 							"path": [
 								"v1",
 								"stockMovement",
-								""
+								"681651997fa01729f036a4d1"
 							]
 						}
 					},
@@ -581,7 +581,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODE1OGU5MTIwYzJmOTc3MWM1MmY5MmEiLCJuYW1lIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMjAyNTEiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDYyNDM4MzksImV4cCI6MTc0NjI1NDYzOX0.JLDdDT5Ozg-Apfnq4cUJzE4VaPUZ8KNhDNTrWcrA7HM",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -633,12 +633,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODE1OGU5MTIwYzJmOTc3MWM1MmY5MmEiLCJuYW1lIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMjAyNTEiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDYyNDM4MzksImV4cCI6MTc0NjI1NDYzOX0.JLDdDT5Ozg-Apfnq4cUJzE4VaPUZ8KNhDNTrWcrA7HM",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3616/v1/product/",
+							"raw": "http://localhost:3616/v1/product/?nombre=honor",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -652,8 +652,7 @@
 							"query": [
 								{
 									"key": "nombre",
-									"value": "honor",
-									"disabled": true
+									"value": "honor"
 								},
 								{
 									"key": "categoria",
@@ -677,7 +676,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODE1OGU5MTIwYzJmOTc3MWM1MmY5MmEiLCJuYW1lIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMjAyNTEiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDYyNDMyODAsImV4cCI6MTc0NjI1NDA4MH0.ifjTqaohFaxNZj51JoAWGEnm0A9eBpSjBqhNBZtfdbo",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -710,7 +709,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3616/v1/product/update/681594c7d4ff3e0e73920fa2",
+							"raw": "http://localhost:3616/v1/product/update/681651997fa01729f036a4d1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -720,7 +719,7 @@
 								"v1",
 								"product",
 								"update",
-								"681594c7d4ff3e0e73920fa2"
+								"681651997fa01729f036a4d1"
 							]
 						}
 					},
@@ -733,7 +732,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODE1OGU5MTIwYzJmOTc3MWM1MmY5MmEiLCJuYW1lIjoiQURNSU4iLCJ1c2VybmFtZSI6ImFkbWluMjAyNTEiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDYyNDM4MzksImV4cCI6MTc0NjI1NDYzOX0.JLDdDT5Ozg-Apfnq4cUJzE4VaPUZ8KNhDNTrWcrA7HM",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -749,6 +748,419 @@
 								"product",
 								"delete",
 								"681594c7d4ff3e0e73920fa2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStockAlerts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/getStockAlerts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"getStockAlerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpirationAlerts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/getExpirationAlerts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"getExpirationAlerts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "getAllClients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/client/getAllClients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"getAllClients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getClient",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/client/getClient/681662090af0568f132260a8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"getClient",
+								"681662090af0568f132260a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteClient",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/client/privateDeleteClient/681662090af0568f132260a8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"privateDeleteClient",
+								"681662090af0568f132260a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createClient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Juan Guerra",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Infasa",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "juGuerra@outlook.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/client/createClient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"createClient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateClient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Armando Reyes",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Ecomoda",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "contact",
+									"value": "amendoza@gmail.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/client/privateUpdateClient/681660c063d9524809ff2bf4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"privateUpdateClient",
+								"681660c063d9524809ff2bf4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supplier",
+			"item": [
+				{
+					"name": "getAllSuppliers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/getAllSuppliers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"getAllSuppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSupplier",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/getSupplier/6816654adf69ec81f50b8044",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"getSupplier",
+								"6816654adf69ec81f50b8044"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSupplier",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/privateDeleteSupplier/6816661e7a1e3511115bb1db",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"privateDeleteSupplier",
+								"6816661e7a1e3511115bb1db"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createSupplier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fabrica de Suministros Alimenticios S.A.",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "2333-4455 | contacto@fsa.com.gt",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/createSupplier",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"createSupplier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSupplier",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fabrica Suministros Alimenticios S.A.",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "2333-4488 | contacto@fsa.com.gt",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/privateUpdateSupplier/6816654adf69ec81f50b8044",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"privateUpdateSupplier",
+								"6816654adf69ec81f50b8044"
 							]
 						}
 					},

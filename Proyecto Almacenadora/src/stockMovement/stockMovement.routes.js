@@ -4,7 +4,7 @@ import {
     getAllStockMovements,
     getStockMovementsByProduct
 } from './stockMovement.controller.js'
-import { validateJwt, isAdmin, isAdminOrEmployee } from '../../middlewares/validate.jwt.js'
+import { validateJwt, isAdmin, isActive } from '../../middlewares/validate.jwt.js'
 import {
     registerMovementValidator,
     getMovementByProductValidator
@@ -16,10 +16,10 @@ const api = Router()
 
 //Registrar movimiento de entrada o salida
 api.post(
-    '/',
+    '/registerMovement',
     [
         validateJwt,
-        registerMovementValidator
+        registerMovementValidator, isActive
     ],
     createStockMovement
 )
@@ -29,7 +29,7 @@ api.get(
     '/',
     [
         validateJwt,
-        isAdmin
+        isAdmin, isActive
     ],
     getAllStockMovements
 )
@@ -39,7 +39,7 @@ api.get(
     '/:id',
     [
         validateJwt,
-        getMovementByProductValidator
+        getMovementByProductValidator, isActive
     ],
     getStockMovementsByProduct
 )

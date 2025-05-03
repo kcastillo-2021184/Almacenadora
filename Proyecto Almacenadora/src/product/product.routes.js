@@ -3,17 +3,25 @@ import {
     crearProducto,
     editarProducto,
     eliminarProducto,
-    filtrarProductos
+    filtrarProductos,
+    getExpirationAlerts,
+    getStockAlerts
 } from './product.controller.js'
 import { validarProducto, validarActualizarProducto } from '../../middlewares/validarProducto.js'
-import { isAdmin, validateJwt } from '../../middlewares/validate.jwt.js'
+import { isActive, isAdmin, validateJwt } from '../../middlewares/validate.jwt.js'
 
 
-const router = Router()
+const api = Router()
 
-router.post('/', [validateJwt, validarProducto ], crearProducto)
-router.put('/update/:id', [validateJwt ,validarActualizarProducto, isAdmin], editarProducto)
-router.delete('/delete/:id' ,[validateJwt, isAdmin], eliminarProducto)
-router.get('/', [validateJwt], filtrarProductos)
+api.post('/', [validateJwt, validarProducto, isActive ], crearProducto)
+api.put('/update/:id', [validateJwt ,validarActualizarProducto, isAdmin, isActive], editarProducto)
+api.delete('/delete/:id' ,[validateJwt, isAdmin, isActive], eliminarProducto)
+api.get('/', [validateJwt], filtrarProductos)
 
-export default router
+//Alertas
+
+api.get('/getStockAlerts', [validateJwt, isActive], getStockAlerts)
+api.get('/getExpirationAlerts', [validateJwt, isActive], getExpirationAlerts)
+
+
+export default api
