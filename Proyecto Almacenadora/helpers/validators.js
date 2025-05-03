@@ -1,7 +1,7 @@
 //Validar campos en las rutas
-import { body } from "express-validator" //Capturar todo el body de la solicitud
+import { body, param } from "express-validator" //Capturar todo el body de la solicitud
 import { validateErrors, validateErrorWithoutImg } from "./validate.error.js"
-import { existUsername, existEmail, objectIdValid } from "./db.validators.js"
+import { existUsername, existEmail, objectIdValid, existProductById, validMovementType } from "./db.validators.js"
 
 export const registerValidator = [
     body('name', 'Name cannot be empty')
@@ -51,5 +51,36 @@ export const updatePasswordValidator = [
         .isStrongPassword()
         .withMessage('Please write a stronger password')
         .isLength({min: 8}),
+    validateErrors
+]
+
+// Validaciones para registrar entrada/salida de inventario
+export const registerMovementValidator = [
+    body('product', 'Product ID is required')
+        .notEmpty()
+        .custom(objectIdValid)
+        .custom(existProductById),
+
+    body('type', 'Type is required')
+        .notEmpty()
+        .custom(validMovementType),
+
+    body('quantity', 'Quantity must be a number greater than 0')
+        .isInt({ min: 1 }),
+
+    body('reason', 'Reason is required')
+        .notEmpty()
+        .isLength({ max: 100 })
+        .withMessage('Reason must not exceed 100 characters'),
+
+    validateErrors
+]
+
+// Validaciones para historial por producto
+export const getMovementByProductValidator = [
+    param('id')
+        .custom(objectIdValid)
+        .withMessage('Invalid product ID'),
+
     validateErrors
 ]

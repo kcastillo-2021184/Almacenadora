@@ -11,6 +11,8 @@ import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
 import authRoutes from '../src/auth/auth.routes.js'
 import userRoutes from '../src/user/user.routes.js'
+import stockMovementRoutes from '../src/stockMovement/stockMovement.routes.js'
+import productRoutes from '../src/product/product.routes.js'
 import { limiter } from '../middlewares/rate.limit.js'
 
 
@@ -28,6 +30,8 @@ const routes = (app)=>{
     //Buenas prácticas de rutas
     //pre ruta o ruta general
     app.use('/v1/user', userRoutes)
+    app.use('/v1/stockMovement', stockMovementRoutes)
+    app.use('/v1/product', productRoutes)
 
 }
 

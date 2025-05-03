@@ -1,6 +1,7 @@
 //Validaciones en relación a la BD
 
 import User from '../src/user/user.model.js'
+import Product from '../src/product/product.model.js'
 import { isValidObjectId } from 'mongoose'
 
 export const existUsername = async(username)=>{
@@ -33,5 +34,23 @@ export const findUser = async(id)=>{
     }catch(err){
         console.error(err)
         return false
+    }
+}
+
+// Verifica si el producto existe en la BD
+export const existProductById = async(id) => {
+    const product = await Product.findById(id)
+    if (!product) {
+        console.error(`Product with id ${id} not found`)
+        throw new Error(`Product not found`)
+    }
+}
+
+// Validar que el tipo de movimiento sea válido
+export const validMovementType = async(type) => {
+    const validTypes = ['ENTRY', 'EXIT']
+    if (!validTypes.includes(type)) {
+        console.error(`Invalid movement type: ${type}`)
+        throw new Error(`Invalid movement type. Must be 'ENTRY' or 'EXIT'`)
     }
 }
