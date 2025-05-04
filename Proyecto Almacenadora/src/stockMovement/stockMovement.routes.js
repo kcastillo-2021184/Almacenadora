@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { 
     createStockMovement,
     getAllStockMovements,
+    getStats,
     getStockMovementsByProduct
 } from './stockMovement.controller.js'
 import { validateJwt, isAdmin, isActive } from '../../middlewares/validate.jwt.js'
@@ -42,6 +43,15 @@ api.get(
         getMovementByProductValidator, isActive
     ],
     getStockMovementsByProduct
+)
+
+api.get(
+    '/stats',
+    [
+        validateJwt,
+        isAdmin
+    ],
+    getStats
 )
 
 //Exportar

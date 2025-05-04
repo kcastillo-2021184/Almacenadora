@@ -107,3 +107,24 @@ export const getExpirationAlerts = async (req, res) => {
         return res.status(500).send({ success: false, message: 'General error', error: e })
     }
 }
+
+// Función para obtener el total en inventario 
+export const getInventory = async (req, res) => {
+    try {
+        const products = await Producto.find()
+        const totalInventoryValue = products.reduce((acc, product) => acc + product.stock * product.price, 0)
+        return res.send(
+            { 
+                success: true, 
+                data: products, 
+                total: totalInventoryValue 
+            }
+        )
+    } catch (error) {
+        res.status(500).send(
+            { 
+                error: error.message 
+            }
+        )
+    }
+}

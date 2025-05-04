@@ -123,3 +123,35 @@ export const getStockMovementsByProduct = async (req, res) => {
         })
     }
 }
+
+//Función para obtener distintas estadísticas (obtener el producto más movido y los días con más movimiento)
+export const getStats = async (req, res) => {
+    try {
+        const mostMovedProduct = await StockMovement.aggregate([
+            { 
+                $group: { 
+                    _id: "$productId", 
+                    totalMoved: { $sum: "$quantity" } 
+                }
+            },
+            { 
+                $sort: { totalMoved: -1 }
+            },
+            { 
+                $limit: 1  
+            }
+        ])
+        return res.send(
+            { 
+                success: true, 
+                data: mostMovedProduct 
+            }
+        )
+    } catch (error) {
+        res.status(500).send(
+            { 
+                error: error.message 
+            }
+        )
+    }
+}
