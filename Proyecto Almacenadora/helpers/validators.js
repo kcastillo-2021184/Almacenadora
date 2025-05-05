@@ -21,6 +21,7 @@ export const registerValidator = [
         .isStrongPassword()
         .withMessage('The password must be strong')
         .isLength({min: 8}),
+    body('phone', 'Phone number must be 8 characters').notEmpty(),
     validateErrors
 ]
 

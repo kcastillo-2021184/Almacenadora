@@ -16,7 +16,6 @@ const api = Router()
 api.post(
     '/register', 
     [
-        uploadProfilePicture.single('profilePicture'),
         registerValidator,
         deleteFileOnError
     ], 

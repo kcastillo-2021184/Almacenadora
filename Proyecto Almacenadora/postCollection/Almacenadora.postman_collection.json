@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d297df38-0024-4ad8-8047-d3f1596c2328",
-		"name": "HotelManagement",
+		"_postman_id": "8dea114e-edf9-499d-a920-00b607e50773",
+		"name": "Almacenadora",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37951917"
+		"_exporter_id": "38261665"
 	},
 	"item": [
 		{
@@ -464,7 +464,7 @@
 							"urlencoded": [
 								{
 									"key": "product",
-									"value": "681651997fa01729f036a4d1",
+									"value": "68183605d954293767c3b857",
 									"type": "text"
 								},
 								{
@@ -480,7 +480,7 @@
 								},
 								{
 									"key": "quantity",
-									"value": "10",
+									"value": "5",
 									"type": "text"
 								},
 								{
@@ -551,7 +551,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3616/v1/stockMovement/681651997fa01729f036a4d1",
+							"raw": "http://localhost:3616/v1/stockMovement/681835d0d954293767c3b851",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -560,7 +560,41 @@
 							"path": [
 								"v1",
 								"stockMovement",
-								"681651997fa01729f036a4d1"
+								"681835d0d954293767c3b851"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/stockMovement/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"stockMovement",
+								"stats"
 							]
 						}
 					},
@@ -590,22 +624,22 @@
 							"urlencoded": [
 								{
 									"key": "nombre",
-									"value": "Honor magic 5 lite",
+									"value": "Laptop Asus",
 									"type": "text"
 								},
 								{
 									"key": "categoria",
-									"value": "tecnologia",
+									"value": "Computo",
 									"type": "text"
 								},
 								{
 									"key": "stock",
-									"value": "6",
+									"value": "7",
 									"type": "text"
 								},
 								{
 									"key": "proveedor",
-									"value": "Claro",
+									"value": "Intelaf",
 									"type": "text"
 								}
 							]
@@ -802,6 +836,33 @@
 								"v1",
 								"product",
 								"getExpirationAlerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getInventory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/inventory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"inventory"
 							]
 						}
 					},
