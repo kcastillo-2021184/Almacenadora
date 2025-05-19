@@ -41,13 +41,17 @@ const Login = () => {
       console.log('Respuesta completa:', response.data);
 
       if (token && user) {
-        if (token && user) {
-          localStorage.setItem('token', token);
-          localStorage.setItem('user', JSON.stringify(user));
-          toast.success('Sesión iniciada correctamente');
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        toast.success('Sesión iniciada correctamente');
+
+        if (user.role === 'ADMIN') {
           navigate('/admin');
+        } else {
+          navigate('/employee');
         }
-      } else {
+      }
+    else {
         setLoginError(message || 'Credenciales incorrectas');
         toast.error('Credenciales incorrectas');
       }
