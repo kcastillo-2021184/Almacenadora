@@ -1,0 +1,1233 @@
+{
+	"info": {
+		"_postman_id": "8dea114e-edf9-499d-a920-00b607e50773",
+		"name": "Almacenadora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38261665"
+	},
+	"item": [
+		{
+			"name": "User / Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "admin20251",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "FortiPrime1@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3616/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterEmployee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Neto",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Bran",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "netito10",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "netogay@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Kinalito2025@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ADMIN",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "aña",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin20251",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "FortiPrime1@",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3616/v1/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3616/v1/user/681432289ea93f3b312dcad8",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"user",
+								"681432289ea93f3b312dcad8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "aña",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Castillo",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ccastillo23@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "77889944",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3616/v1/user/update/67c5dc3d48f93ab551026608",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"user",
+								"update",
+								"67c5dc3d48f93ab551026608"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserAdmin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ccastillo23@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "77889944",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "CLIENT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3616/v1/user/update2/67c5dc3d48f93ab551026608",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"user",
+								"update2",
+								"67c5dc3d48f93ab551026608"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePass",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "currentPassword",
+									"value": "Ak1723os17@",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "Ak1723os22@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3616/v1/user/password/67c5dc1b48f93ab551026603",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"user",
+								"password",
+								"67c5dc1b48f93ab551026603"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ccastillo23@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "currentPassword",
+									"value": "Ak1723os22@",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3616/v1/user/delete/67c5dc3d48f93ab551026608",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"user",
+								"delete",
+								"67c5dc3d48f93ab551026608"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserAdmin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3616/v1/user/delete2/67aec8862d70d334519ee68e",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"user",
+								"delete2",
+								"67aec8862d70d334519ee68e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MovimientoInventario",
+			"item": [
+				{
+					"name": "RegistrarEntradaOSalida",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product",
+									"value": "68183605d954293767c3b857",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "ENTRY",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "Esta por default de la fecha actual que se hace la petición",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "quantity",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "Se llena por el usuario que hace la solicitud",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reason",
+									"value": "personal use",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/stockMovement/registerMovement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"stockMovement",
+								"registerMovement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HistorialGlobal",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/stockMovement/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"stockMovement",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HistorialPorProducto",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/stockMovement/681835d0d954293767c3b851",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"stockMovement",
+								"681835d0d954293767c3b851"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/stockMovement/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"stockMovement",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Laptop Asus",
+									"type": "text"
+								},
+								{
+									"key": "categoria",
+									"value": "Computo",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "proveedor",
+									"value": "Intelaf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAndFilter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/?nombre=honor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "honor"
+								},
+								{
+									"key": "categoria",
+									"value": "tecnologia",
+									"disabled": true
+								},
+								{
+									"key": "estado",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Honor magic 7 lite",
+									"type": "text"
+								},
+								{
+									"key": "categoria",
+									"value": "tecnologia",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "proveedor",
+									"value": "Claro",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/product/update/681651997fa01729f036a4d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"update",
+								"681651997fa01729f036a4d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/delete/681594c7d4ff3e0e73920fa2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"delete",
+								"681594c7d4ff3e0e73920fa2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStockAlerts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/getStockAlerts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"getStockAlerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpirationAlerts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/getExpirationAlerts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"getExpirationAlerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getInventory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/product/inventory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"product",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "getAllClients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/client/getAllClients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"getAllClients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getClient",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/client/getClient/681662090af0568f132260a8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"getClient",
+								"681662090af0568f132260a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteClient",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/client/privateDeleteClient/681662090af0568f132260a8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"privateDeleteClient",
+								"681662090af0568f132260a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createClient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Juan Guerra",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Infasa",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "juGuerra@outlook.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/client/createClient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"createClient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateClient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Armando Reyes",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Ecomoda",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "contact",
+									"value": "amendoza@gmail.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/client/privateUpdateClient/681660c063d9524809ff2bf4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"client",
+								"privateUpdateClient",
+								"681660c063d9524809ff2bf4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supplier",
+			"item": [
+				{
+					"name": "getAllSuppliers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/getAllSuppliers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"getAllSuppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSupplier",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/getSupplier/6816654adf69ec81f50b8044",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"getSupplier",
+								"6816654adf69ec81f50b8044"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSupplier",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/privateDeleteSupplier/6816661e7a1e3511115bb1db",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"privateDeleteSupplier",
+								"6816661e7a1e3511115bb1db"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createSupplier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fabrica de Suministros Alimenticios S.A.",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "2333-4455 | contacto@fsa.com.gt",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/createSupplier",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"createSupplier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSupplier",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Fabrica Suministros Alimenticios S.A.",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "2333-4488 | contacto@fsa.com.gt",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3616/v1/supplier/privateUpdateSupplier/6816654adf69ec81f50b8044",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3616",
+							"path": [
+								"v1",
+								"supplier",
+								"privateUpdateSupplier",
+								"6816654adf69ec81f50b8044"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
